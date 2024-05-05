@@ -13,6 +13,10 @@ export class PetsService {
     return this.petsRepository.save(newPet);
   }
 
+  findOne(id: number): Promise<Pet> {
+    return this.petsRepository.findOneOrFail({ where: { id } });
+  }
+
   async findAll(): Promise<Pet[]> {
     return this.petsRepository.find();
   }
